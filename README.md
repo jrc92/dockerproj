@@ -36,7 +36,7 @@ lint:
   
 10. Now we can finally run our Flask app with the following command ```gunicorn app:app --config=config.py```. We will see that a server address will pop up and we can click on it to preview our website
   
-We will now proceed to creating a Docker image.
+We will now proceed to create a Docker image.
 
   11.  First, we will build an image from our Dockerfile ```docker build --tag=app .```
   
