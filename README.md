@@ -43,6 +43,7 @@ We will now proceed to creating a Docker image.
   12. We can then check if our Docker image has been created by doing ```docker image ls```. Once the image ```app``` has been created, we can run the following command ```docker run -d -p 8080:8080 config.py``` and we will see from ```docker ps -a``` command that our server is running on the backgroun. We can click on the Web preview on the top right of Cloud Shell to view our Hello World app.
   
 Now, we will push our Docker image to DockerHub 
+  
   13. We will first need to setup a DockerHub account (if you dont existingly have one)
 
   14. To deploy our Docker image to DockerHub, we will first create a shell script using ```touch push-docker.sh``` which allows for pull, (optional) retag, save, load and push Docker images
