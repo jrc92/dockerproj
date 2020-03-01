@@ -69,7 +69,7 @@ docker image push $dockerpath
 
   15. Next, we will do ```docker login``` to login into our account, and ```chmod +x push-docker.sh && ./push-docker.sh```
 
-  16. Now we will see that our Docker image associated with our app is in DockerHub and we are done!
+  16. Now we will see that our Docker image associated with our app is in DockerHub (https://hub.docker.com/r/jrc92/app) and we are done!
   
   We can now pull our Dockerimage with the following command: ```docker pull jrc92/app``` and we can check if our image is downloaded using ```docker image ls```. We can then do ```docker run -d -p 8080:8080 jrc92/app``` on shell and preview our Hello World app.
  
