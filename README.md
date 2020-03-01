@@ -13,12 +13,12 @@ This project is created on Google Cloud Platform.
 4. ```git clone``` the repository with SSH to GCP and ```cd [YOUR REPO]``` into the directory which you have cloned from GitHub
 
 5. Create the following files under the repository using ```touch Dockerfile```, ```touch requirements.txt```, ```touch app.py```, ```config.py``` and ```touch Makefile```
-The contents of the files are as per the repository.
-* ```Dockerfile``` allows Docker images to be built automatically by reading the instructions provided in the Dockerfile
-* ```requirements.txt``` contains packages that the app requires to be installed
-* ```Makefile``` contains compilation directives
-* ```app.py``` will contain the codes for our Flask app
-* ```config.py``` has the required [Gunicorn] (https://vsupalov.com/what-is-gunicorn/) (WSGI application server) configuration to run the Flask app
+	The contents of the files are as per the repository.
+	* ```Dockerfile``` allows Docker images to be built automatically by reading the instructions provided in the Dockerfile
+	* ```requirements.txt``` contains packages that the app requires to be installed
+	* ```Makefile``` contains compilation directives
+	* ```app.py``` will contain the codes for our Flask app
+	* ```config.py``` has the required Gunicorn (https://vsupalov.com/what-is-gunicorn/) (WSGI application server) configuration to 	run the Flask app
 reference for configuring Dockerfile and config.py: https://medium.com/google-cloud/a-guide-to-deploy-flask-app-on-google-kubernetes-engine-bfbbee5c6fb
 
 6. Before we run the application, we would need to do some linting on our code, and since we would be creating a Docker image based on the Dockerfile we created, we would need to lint our ```Dockerfile``` as well: we would add the following lines to our ```Makefile```
@@ -27,14 +27,14 @@ lint:
 	hadolint Dockerfile 
 	pylint --disable=R,C,W1203 app.py
  ```
- 7. Since we do not have hadolint preinstalled on GCP, we would enter the following lines of code on Cloud Shell
+7. Since we do not have hadolint preinstalled on GCP, we would enter the following lines of code on Cloud Shell
   ```sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.17.5/hadolint-Linux-x86_64 &&```                ```sudo chmod +x /bin/hadolint```, which basically downloads and install hadolint as root user (```chmod +x``` basically makes the file executable). 
   
-  8. Next, on shell, we will create a virtual environment for our project: ```python3 -m venv ~/.dockerproj``` and activate the virtual environment using ```source ~/.dockerproj/bin/activate``` 
+8. Next, on shell, we will create a virtual environment for our project: ```python3 -m venv ~/.dockerproj``` and activate the virtual environment using ```source ~/.dockerproj/bin/activate``` 
   
-  9. We will do ```make install``` to install all the packages outlined in ```requirements.txt```, then ```make lint``` to check if the code lints.
+9. We will do ```make install``` to install all the packages outlined in ```requirements.txt```, then ```make lint``` to check if the code lints.
   
-  10. Now we can finally run our Flask app with the following command ```gunicorn app:app --config=config.py```. We will see that a server address will pop up and we can click on it to preview our website
+10. Now we can finally run our Flask app with the following command ```gunicorn app:app --config=config.py```. We will see that a server address will pop up and we can click on it to preview our website
   
 We will now proceed to creating a Docker image.
 
